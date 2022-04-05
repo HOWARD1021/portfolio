@@ -1005,7 +1005,7 @@ export default {
 
 <style lang="scss">
   $duration: 17s;
-
+  $size: 0.07;
   .content--fox {
     @apply w-full h-full top-0 ;
     transform:  scale(0.9);
@@ -1060,16 +1060,24 @@ export default {
   }
 
 
-  $animations: (
-    'cat' :(
-        0s: unquote('scale(0.55); opacity: 0'),
-        1s: unquote('scale(0.6); opacity: 1'),
-        2s: scale(0.7),
-        3s: scale(0.825),
-        4s: scale(0.95),
-        4.7s: unquote('scale(1); animation-timing-function: ease-in-out')
-    )
-  );
+$animations: (
+  'cat' :(
+    	0s: unquote('scale(0.55); opacity: 0'),
+      1s: unquote('scale(0.6); opacity: 1'),
+      2s: scale(0.7),
+      3s: scale(0.825),
+      4s: scale(0.95),
+      4.7s: unquote('scale(1); animation-timing-function: ease-in-out')
+  ),
+  'body': (
+		(1s, 2s, 3s, 4s): translateY(5vmax * $size),
+		(1.2s, 2.2s, 3.2s, 4.2s): translateY(0),
+	),
+	'head': (
+		(1s, 2s, 3s, 4s): translateY(10vmax * $size),
+		(1.2s, 2.2s, 3.2s, 4.2s): translateY(0),
+	)
+);
 
   @each $animation-name, $animation in $animations {
     @keyframes #{$animation-name} {
