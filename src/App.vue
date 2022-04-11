@@ -2,7 +2,7 @@
   <nav class=" navStyle ">
     <router-link to="/">Home</router-link> 
     <router-link to="/about">About</router-link>
-    <a> Test</a>
+    <router-link to="/lyingCat">Cat</router-link>
 	</nav>
   <router-view/>
 </template>
