@@ -1014,69 +1014,70 @@ export default {
 <style lang="scss">
   $duration: 17s;
   $size: 0.07;
-
-  .content--fox {
-    @apply w-full h-full top-0 ;
-    transform:  scale(0.9);
-    overflow: hidden;
-    left: 50%;
-    transform: translateX(-50%);
-    background-size: cover;
-    position: absolute;
-    pointer-events: none;
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-position: bottom center;
-      background-repeat: no-repeat;
+  .about{
+    .content--fox {
+      @apply w-full h-full top-0 ;
+      transform:  scale(0.9);
+      overflow: hidden;
+      left: 50%;
+      transform: translateX(-50%);
       background-size: cover;
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%201290%20900%22%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%237e8841%22%20d%3D%22M1290%2C764%2E1V900H0V722c115%2E2%2C0%2C514%2E2%2C135%2E7%2C698%2C134%2E8C903%2E5%2C855%2E7%2C1223%2E5%2C764%2E1%2C1290%2C764%2E1z%22%2F%3E%3Cpath%20fill%3D%22%234f6333%22%20d%3D%22M6%2C900c0%2C0%2C209%2E1%2D96%2E7%2C417%2E9%2D88%2E5c180%2E9%2C7%2E1%2C230%2E7%2C64%2E4%2C442%2E4%2C60%2E9c68%2E2%2D1%2E1%2C126%2E6%2D8%2E1%2C233%2E7%2D1%2E5c71%2E8%2C4%2E5%2C190%2C29%2C190%2C29H6z%22%2F%3E%3C%2Fsvg%3E");
+      position: absolute;
+      pointer-events: none;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%201290%20900%22%20xmlns%3D%22http%3A%2F%2Fwww%2Ew3%2Eorg%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%237e8841%22%20d%3D%22M1290%2C764%2E1V900H0V722c115%2E2%2C0%2C514%2E2%2C135%2E7%2C698%2C134%2E8C903%2E5%2C855%2E7%2C1223%2E5%2C764%2E1%2C1290%2C764%2E1z%22%2F%3E%3Cpath%20fill%3D%22%234f6333%22%20d%3D%22M6%2C900c0%2C0%2C209%2E1%2D96%2E7%2C417%2E9%2D88%2E5c180%2E9%2C7%2E1%2C230%2E7%2C64%2E4%2C442%2E4%2C60%2E9c68%2E2%2D1%2E1%2C126%2E6%2D8%2E1%2C233%2E7%2D1%2E5c71%2E8%2C4%2E5%2C190%2C29%2C190%2C29H6z%22%2F%3E%3C%2Fsvg%3E");
+      }
+
     }
 
-  }
+    .cat {
+      position: absolute;
+      animation: cat $duration none, squigglevision 0.3s infinite;
+      animation-timing-function: cubic-bezier(0, 0, 0.8, 0.9);
+      bottom: 10.5vmax;
+      left: 50%;
+      transform-origin: bottom right;
+      width : 40vw;
+      height: 40vh
+    }
 
-  .cat {
-    position: absolute;
-    animation: cat $duration none, squigglevision 0.3s infinite;
-    animation-timing-function: cubic-bezier(0, 0, 0.8, 0.9);
-    bottom: 10.5vmax;
-    left: 50%;
-    transform-origin: bottom right;
-    width : 40vw;
-    height: 40vh
-  }
+    #body {
+      animation: body $duration forwards;
+      transform-origin: top center;
+    }
 
-  #body {
-    animation: body $duration forwards;
-    transform-origin: top center;
-  }
+    #head {
+      animation: head $duration forwards;
+      transform-origin: top center;
+      transform: translateZ(200px);
+    }
 
-  #head {
-    animation: head $duration forwards;
-    transform-origin: top center;
-    transform: translateZ(200px);
-  }
+    #leftEar, #rightEar, #eye {
+      animation: movement $duration forwards;
+      transform-origin: top center;
+      transform: translateZ(200px);
+    }
 
-  #leftEar, #rightEar, #eye {
-    animation: movement $duration forwards;
-    transform-origin: top center;
-    transform: translateZ(200px);
-  }
+    #leftlegUpper {
+      animation: upper-left-leg $duration forwards;
+      transform-box:  fill-box;
+    }
 
-  #leftlegUpper {
-    animation: upper-left-leg $duration forwards;
-    transform-box:  fill-box;
-  }
-
-  #leftlegDown {
-    animation: down-left-leg $duration forwards;
-    transform-box:  fill-box;
-    transform-origin: center;
+    #leftlegDown {
+      animation: down-left-leg $duration forwards;
+      transform-box:  fill-box;
+      transform-origin: center;
+    }
   }
 
   $animations: (

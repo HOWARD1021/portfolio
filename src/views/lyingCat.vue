@@ -1,6 +1,6 @@
 <template>
   <div class="lyingCat">
-    <div class="content content--fox">
+    <div class="content content--cat">
       <div class= "cat">
         <svg v-show="activate" width="507" height="351" viewBox="0 0 507 351" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="lyingCat 1">
@@ -156,7 +156,7 @@ export default {
   },
   data() {
     return {
-      activate: false,
+      activate: true,
       vueCanvas: null
     }
   },
@@ -187,27 +187,29 @@ export default {
   $duration: 17s;
   $size: 0.07;
 
-  .content--fox {
-    @apply w-full h-full top-0 ;
-    transform:  scale(0.9);
-    overflow: hidden;
-    left: 50%;
-    transform: translateX(-50%);
-    background-size: cover;
-    position: absolute;
-    pointer-events: none;
+  .lyingCat {
+    .content--cat {
+      @apply w-full h-full top-0 ;
+      transform:  scale(0.9);
+      overflow: hidden;
+      left: 50%;
+      transform: translateX(-50%);
+      background-size: cover;
+      position: absolute;
+      pointer-events: none;
 
-  }
+    }
 
-  .cat {
-    position: absolute;
-    animation: cat $duration none, squigglevision 0.3s infinite;
-    animation-timing-function: cubic-bezier(0, 0, 0.8, 0.9);
-    bottom: 10.5vmax;
-    left: 50%;
-    transform-origin: bottom right;
-    width : 30vw;
-    height: 30vh
+    .Cat {
+      position: absolute;
+      animation: cat $duration none, squigglevision 0.3s infinite;
+      animation-timing-function: cubic-bezier(0, 0, 0.8, 0.9);
+      bottom: 10.5vmax;
+      left: 50%;
+      transform-origin: bottom right;
+      width : 30vw;
+      height: 30vh
+    }
   }
 
   $animations: (
