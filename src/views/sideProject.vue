@@ -45,11 +45,10 @@ export default {
 
   @apply flex justify-center;
 
-   img {
+  img {
     max-height: 100%;
     margin: 0 0;
-    top:0;
-    left: 0;
+
     max-width: none;
     width: auto;
   }
