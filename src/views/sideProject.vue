@@ -1,10 +1,12 @@
 <template>
   <div class="sideProject">
 
-  <div class="item-image">
-    <div class="snowflake"><span></span></div>
-    <img class="" src="../img/spring_fox.jpg"> 
-  </div>
+  <transition name="scroll">
+    <div class="item-image">
+      
+      <img class="" src="../img/spring_fox.jpg"> 
+    </div>
+  </transition>
 
   </div>
 </template>
@@ -39,9 +41,10 @@ export default {
 
   margin: 0 auto;
   height: 400px;
-  width: 200px;
+  width: 300px;
   overflow: hidden;
   text-align: center;
+  transition: width 1s ease-out;
 
   @apply flex justify-center;
 
@@ -51,8 +54,21 @@ export default {
 
     max-width: none;
     width: auto;
+
+  }
+  
+}
+
+  .item-image:hover {
+    width: 400px;
+    cursor: pointer;
   }
 
+/*
+.item-image:hover {
+  width: 400px;
+  cursor: pointer;
 }
+*/
 
 </style>
