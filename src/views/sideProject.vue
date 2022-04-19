@@ -32,35 +32,39 @@ export default {
 </script>
 
 <style lang="scss">
+
   :root {
     --vh: 9.37px;
   }
 
-.item-image{
-  border: 5px solid #d7d7d7;
+  .item-image{
+    border: 5px solid #d7d7d7;
+    width:300px;
+    height:60%;
+    
+    transition:all 1s ease-out;
+    position:absolute;
+    left :500px;
+    top: 500px;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    text-align: center;
+    //transition: width 1s ease-out;
+    //transition: width, height, transform 1s;
 
-  margin: 0 auto;
-  height: 400px;
-  width: 300px;
-  overflow: hidden;
-  text-align: center;
-  transition: width 1s ease-out;
+    @apply flex justify-center;
 
-  @apply flex justify-center;
+    img {
+      max-height: 100%;
+      margin: 0 0;
+      max-width: none;
+      width: auto;
 
-  img {
-    max-height: 100%;
-    margin: 0 0;
-
-    max-width: none;
-    width: auto;
-
+    }
   }
-  
-}
 
   .item-image:hover {
-    width: 400px;
+    width:400px;
     cursor: pointer;
   }
 
