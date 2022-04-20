@@ -5,7 +5,7 @@
 
       <div>
         <transition name="scroll">
-          <div class="item-image p1">
+          <div class="item-image p1" @mouseover="test" @mouseleave="testLeave">
             <img class="" src="../img/spring_fox.jpg"> 
             <div class="en_border left">
             <svg width="12" height="650" viewBox="0 0 9 650" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -198,7 +198,12 @@ export default {
 
   },
   methods:{
-
+    test(){
+      console.log("enter")
+    },
+    testLeave(){
+      console.log("leave")
+    }
   }
 }
 </script>
@@ -239,6 +244,7 @@ export default {
     }
   }
   
+  /* item image container width */
   .item-image.p1{
     @apply absolute;
     left: 2vw + 8vw;
