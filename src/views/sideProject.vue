@@ -228,26 +228,37 @@ export default {
     return {
       value: [2,3,4,5,6,7],
       scale_item: (100/27 *3),
-      scale_space: (100/27)
+      scale_space: (100/27),
+      hovered: false
     }
   },
   methods:{
     projectHover(val){
-      console.log("value:",val)
+      console.log("input value:",val)
+      
       // 1 ~ val
-      
-      for(var i=val-1; i>=1; i--){
-        this.value[i-1] = this.value[i-1] - 1
+      if(!this.hovered){
+        console.log("1 ~ val")
+        for(var i=val-1; i>=1; i--){
+          console.log(i,":",this.value[i-1])
+          this.value[i-1] = this.value[i-1] - 1
+          console.log(i,":",this.value[i-1])
+        }
+        // val ~ 6
+        console.log(" val ~ 6")
+        for(var i=val+1; i<=6 ;i++){
+          console.log(i,":",this.value[i-1])
+          this.value[i-1] = this.value[i-1] + 1
+          console.log(i,":",this.value[i-1])
+        }
       }
-      // val ~ 6
-      for(var i=val+1; i<=6 ;i++){
-        this.value[i-1] = this.value[i-1] + 1
-      }
       
-
+      this.hovered = true
     },
     projectLeave(val){
+      console.log("leave:", this.value)
       this.value= [2,3,4,5,6,7]
+      this.hovered = false
     },
     calcVal(shift){
 
@@ -277,7 +288,7 @@ export default {
       width: $scale-item * 1vw;
       height: 60%;
       
-      transition:all 1s ease-out;
+      transition:all 0.5s ease-out;
       transform: translate(-50%, -50%);
       //transition: width, height, transform 1s;
 
