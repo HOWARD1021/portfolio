@@ -227,10 +227,18 @@ export default {
   data() {
     return {
       value: [2,3,4,5,6,7],
+      value_ind: [2,3,4,5,6,7],
       scale_item: (100/27 *3),
       scale_space: (100/27),
       hovered: false
     }
+  },
+  mounted(){
+    
+    for(var i=0; i<6; i++){
+      this.value[i] = this.calcVal(i, this.value_ind[i])
+    }
+    
   },
   methods:{
     projectHover(val){
@@ -240,31 +248,34 @@ export default {
       if(!this.hovered){
         console.log("1 ~ val")
         for(var i=val-1; i>=1; i--){
-          console.log(i,":",this.value[i-1])
-          this.value[i-1] = this.value[i-1] - 1
-          console.log(i,":",this.value[i-1])
+          this.value_ind[i-1] = this.value_ind[i-1] - 1
         }
         // val ~ 6
         console.log(" val ~ 6")
         for(var i=val+1; i<=6 ;i++){
-          console.log(i,":",this.value[i-1])
-          this.value[i-1] = this.value[i-1] + 1
-          console.log(i,":",this.value[i-1])
+          this.value_ind[i-1] = this.value_ind[i-1] + 1
+        }
+
+        for(var i=0; i<6; i++){
+          this.value[i] = this.calcVal(i, this.value_ind[i])
         }
       }
       
       this.hovered = true
     },
     projectLeave(val){
-      console.log("leave:", this.value)
-      this.value= [2,3,4,5,6,7]
+      console.log("leave:", this.value_ind)
+      this.value_ind= [2,3,4,5,6,7]
       this.hovered = false
+      for(var i=0; i<6; i++){
+        this.value[i] = this.calcVal(i, this.value_ind[i])
+        console.log(this.value[i])
+      }
     },
-    calcVal(shift){
-
-      return this.scale-space* (shift) + this.scale-item + this.scale-item/2;
-      
+    calcVal(ind, shift){
+      return this.scale_space* (shift) + (this.scale_item* ind) + this.scale_item/2;
     }
+
   }
 }
 </script>
@@ -277,15 +288,14 @@ export default {
   $space-4: v-bind("value[3]");
   $space-5: v-bind("value[4]");
   $space-6: v-bind("value[5]");
-  $scale-item: (100/27 *3);
-  $scale-space: (100/27);
+  $scale-item: v-bind("scale_item");
+  $scale-space: v-bind("scale_space");
 
   .project {
     //@apply grid grid-cols-3 gap-2 w-full h-full; 
-
     .item-image{
       //border: 5px solid #d7d7d7;
-      width: $scale-item * 1vw;
+      width: calc($scale-item * 1vw);
       height: 60%;
       
       transition:all 0.5s ease-out;
@@ -304,46 +314,46 @@ export default {
     }
 
     .item-image:hover {
-      width: ($scale-item + ($scale-space*2)) * 1vw;
+      width: calc( ($scale-item + ($scale-space*2)) * 1vw);
       cursor: pointer;
     }
   
     /* item image container width */
     .item-image.p1{
       @apply absolute;
-      left: calc(($scale-space* $space-1 + $scale-item/2) * 1vw );
+      left: calc( $space-1 * 1vw); 
       top: 500px;
       
     }
 
     .item-image.p2{
       @apply absolute;
-      left: calc( ($scale-space* $space-2 + $scale-item + $scale-item/2) * 1vw); //2vw *3 + 16vw*1 +8vw;
-      top: 500px
+      left:  calc( $space-2 * 1vw); 
+      top: 550px
     }
 
     .item-image.p3{
       @apply absolute;
-      left: calc( ($scale-space* $space-3 + $scale-item*2 + $scale-item/2) * 1vw );
+      left: calc( $space-3 * 1vw); 
       top: 500px
     }
 
     .item-image.p4{
       @apply absolute;
-      left:  calc( ($scale-space* $space-4 + $scale-item*3 + $scale-item/2) * 1vw);
-      top: 500px
+      left:  calc( $space-4 * 1vw); 
+      top: 550px
     }
 
     .item-image.p5{
       @apply absolute;
-      left:  calc( ($scale-space* $space-5 + $scale-item*4 + $scale-item/2) * 1vw );
+      left:  calc( $space-5 * 1vw); 
       top: 500px
     }
 
     .item-image.p6{
       @apply absolute;
-      left:  calc( ($scale-space* $space-6 + $scale-item*5 + $scale-item/2) *1vw );
-      top: 500px
+      left:  calc( $space-6 * 1vw); 
+      top: 550px
     }
 
     /* en_border */
