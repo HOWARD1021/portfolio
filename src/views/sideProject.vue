@@ -322,38 +322,38 @@ export default {
     .item-image.p1{
       @apply absolute;
       left: calc( $space-1 * 1vw); 
-      top: 500px;
+      top: 50vh;
       
     }
 
     .item-image.p2{
       @apply absolute;
       left:  calc( $space-2 * 1vw); 
-      top: 550px
+      top: 55vh
     }
 
     .item-image.p3{
       @apply absolute;
       left: calc( $space-3 * 1vw); 
-      top: 500px
+      top: 50vh
     }
 
     .item-image.p4{
       @apply absolute;
       left:  calc( $space-4 * 1vw); 
-      top: 550px
+      top: 55vh
     }
 
     .item-image.p5{
       @apply absolute;
       left:  calc( $space-5 * 1vw); 
-      top: 500px
+      top: 50vh
     }
 
     .item-image.p6{
       @apply absolute;
       left:  calc( $space-6 * 1vw); 
-      top: 550px
+      top: 55vh
     }
 
     /* en_border */
@@ -373,6 +373,11 @@ export default {
       right: 5px;
       top: -2px;
       will-change: width;
+
+      svg{
+        height: 8px;
+      }
+
     }
 
     .en_border.bottom{
@@ -381,7 +386,11 @@ export default {
       right: 5px;
       bottom: -2px;
       will-change: width;
-      height: 8px;
+
+      svg{
+        height: 8px;
+      }
+
     }
   }
 </style>
