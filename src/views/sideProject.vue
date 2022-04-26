@@ -213,16 +213,23 @@
       </div>
 
     </div>
-
+    <flickity ref="flickity" :options="flickityOptions">
+      <div class="carousel-cell">1</div>
+      <div class="carousel-cell">2</div>
+      <div class="carousel-cell">3</div>
+      <div class="carousel-cell">4</div>
+      <div class="carousel-cell">5</div>
+    </flickity>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import Flickity from 'vue-flickity';
 export default {
   name: 'SideProject',
   components: {
+    Flickity
   },
   data() {
     return {
@@ -230,7 +237,15 @@ export default {
       value_ind: [2,3,4,5,6,7],
       scale_item: (100/27 *3),
       scale_space: (100/27),
-      hovered: false
+      hovered: false,
+      flickityOptions: {
+        initialIndex: 3,
+        prevNextButtons: false,
+        pageDots: false,
+        wrapAround: true
+        
+        // any options from Flickity can be used
+      }
     }
   },
   mounted(){
@@ -241,17 +256,14 @@ export default {
     
   },
   methods:{
-    projectHover(val){
-      console.log("input value:",val)
+    projectHover(val){     
       
-      // 1 ~ val
       if(!this.hovered){
-        console.log("1 ~ val")
+        // 1 ~ val
         for(var i=val-1; i>=1; i--){
           this.value_ind[i-1] = this.value_ind[i-1] - 1
         }
         // val ~ 6
-        console.log(" val ~ 6")
         for(var i=val+1; i<=6 ;i++){
           this.value_ind[i-1] = this.value_ind[i-1] + 1
         }
@@ -264,15 +276,13 @@ export default {
       this.hovered = true
     },
     projectLeave(val){
-      console.log("leave:", this.value_ind)
       this.value_ind= [2,3,4,5,6,7]
       this.hovered = false
       for(var i=0; i<6; i++){
         this.value[i] = this.calcVal(i, this.value_ind[i])
-        console.log(this.value[i])
       }
     },
-    calcVal(ind, shift){
+    calcVal(ind, shift){ //return space value
       return this.scale_space* (shift) + (this.scale_item* ind) + this.scale_item/2;
     }
 
@@ -392,5 +402,25 @@ export default {
       }
 
     }
+
+    @media (max-width: 500px){
+      .item-image{
+      width: calc($scale-item*2 * 1vw);
+      height: 50%;
+
+        img {
+          max-height: 100%;
+          margin: 0 0;
+          max-width: none;
+          width: auto;
+        }
+
+      }
+
+      .item-image:hover {
+        width: calc( ($scale-item*2 + ($scale-space*2)) * 1vw);
+      }
+    }
+
   }
 </style>
