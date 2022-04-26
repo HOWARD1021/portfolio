@@ -521,7 +521,7 @@ export default {
 
 .lyingCat {
   .content--cat {
-    background: #99bfcf url('../img/background.png') no-repeat 50% 50%;
+    background: #99bfcf url('../img/forest.svg') no-repeat 20% 50%;
     background-size: cover;
     position: absolute;
     pointer-events: none;
