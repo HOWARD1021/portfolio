@@ -3,9 +3,9 @@
     <div class="flickWrap">
       <flickity ref="flickity" :options="flickityOptions">
         <div class="carousel-cell">1</div>
-        <div class="carousel-cell" style="position:absolute; left:0; transform: translateX(244px);">2</div>
-        <div class="carousel-cell" style="position:absolute; transform: translateX(488px);">3</div>
-        <div class="carousel-cell" style="position:absolute; transform: translateX(732px);">4</div>
+        <div class="carousel-cell" >2</div>
+        <div class="carousel-cell" >3</div>
+        <div class="carousel-cell" >4</div>
         <div class="carousel-cell" >5</div>
       </flickity>
     </div>
@@ -32,9 +32,6 @@ export default {
         // any options from Flickity can be used
       }
     }
-  },
-  mounted(){
-    this.resize();
   }
 }
 </script>
