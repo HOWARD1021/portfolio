@@ -4,6 +4,7 @@
     <router-link to="/about">About</router-link>
     <router-link to="/lyingCat">Cat</router-link>
     <router-link to="/sideProject">Project</router-link>
+    <router-link to="/flickityImg">Flickity</router-link>
 	</nav>
   <router-view/>
 </template>

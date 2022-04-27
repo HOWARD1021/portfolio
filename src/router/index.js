@@ -24,6 +24,11 @@ const routes = [
     path: '/sideProject',
     name: 'SideProject',
     component: () => import(/* webpackChunkName: "about" */ '../views/sideProject.vue')
+  },
+  {
+    path: '/flickityImg',
+    name: 'FlickityImg',
+    component: () => import(/* webpackChunkName: "about" */  '../views/flickityImg.vue')
   }
 ]
 
