@@ -1,8 +1,6 @@
 <template>
-
-      <Navbar/>
-
-    <div class=" header">
+  <Navbar/>
+  <div class=" header">
     <h1><span>the</span>Aviator</h1>
     <h2>fly it to the end</h2>
   </div>

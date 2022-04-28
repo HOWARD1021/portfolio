@@ -138,16 +138,16 @@ export default {
 
 .lyingCat {
   .content--cat {
-    background: url('../img/forest-background.svg') no-repeat 0% 90%;
+    background: url('../img/forest-background-r.png') no-repeat 50% 50%; //center center fixed
     background-size: cover;
     position: absolute;
     pointer-events: none;
     top: 0;
-    left: 0;
+    //left: 0;
     width: 100%;
-    height: 50%;
+    height: 100vh;
     overflow: hidden;
-    left: 50%;
+    left:50%;
     transform: translateX(-50%); 
 
     &:after {
@@ -156,7 +156,7 @@ export default {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 20%;
+        height: 100vh;
         background-position: bottom center;
         background-repeat: no-repeat;
         background-size: cover;

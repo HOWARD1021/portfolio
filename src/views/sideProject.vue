@@ -1,4 +1,5 @@
 <template>
+  <Navbar/>
   <div class="sideProject">
     <div class="project" v-if=" flickity_enable==false">
 
@@ -214,16 +215,22 @@
 
     </div>
 
+    <div v-if="flickity_enable==true">
+      Test
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Flickity from 'vue-flickity';
+import Navbar from './Navbar.vue';
+
 export default {
   name: 'SideProject',
   components: {
-    Flickity
+    Flickity,
+    Navbar
   },
   data() {
     return {
