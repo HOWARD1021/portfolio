@@ -1,4 +1,7 @@
 <template>
+
+      <Navbar/>
+
     <div class=" header">
     <h1><span>the</span>Aviator</h1>
     <h2>fly it to the end</h2>
@@ -7,11 +10,12 @@
 
 <script>
 // @ is an alias to /src
+import Navbar from './Navbar.vue';
 
 export default {
   name: 'Home',
   components: {
-    
+    Navbar
   }
 }
 </script>

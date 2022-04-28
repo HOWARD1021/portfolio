@@ -1,21 +1,21 @@
 <template>
-
+  <nav class=" navStyle ">
+    <router-link to="/">Home</router-link> 
+    <router-link to="/flickityImg">Flckity</router-link>
+    <router-link to="/lyingCat">Cat</router-link>
+    <router-link to="/sideProject">Project</router-link>
+	</nav>
   <router-view/>
 
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+    name: 'navBar',
 }
+</script>
 
-html {
-  background-color: antiquewhite;
-}
+<style lang="scss">
 
 #nav {
   padding: 30px;
