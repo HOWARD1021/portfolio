@@ -606,7 +606,7 @@ export default {
 
 .lyingCat {
   .content--cat {
-    background: url('../img/forest-foregroundddd.svg') no-repeat 50% 100%; //center center fixed
+    background: url('../img/ballon.png') no-repeat 50% 50%; //center center fixed
     background-size: cover;
     position: absolute;
     pointer-events: none;
@@ -628,8 +628,19 @@ export default {
         background-position: bottom center;
         background-repeat: no-repeat;
         background-size: cover;
+      @include svg((viewBox: (0 0 1290 900))) {
+          @include svg('path', (
+            fill: #7e8841,
+            d: 'M1290,764.1V900H0V722c115.2,0,514.2,135.7,698,134.8C903.5,855.7,1223.5,764.1,1290,764.1z'
+          ));
 
-      }
+          @include svg('path', (
+            fill: #4f6333,
+            d: 'M6,900c0,0,209.1-96.7,417.9-88.5c180.9,7.1,230.7,64.4,442.4,60.9c68.2-1.1,126.6-8.1,233.7-1.5c71.8,4.5,190,29,190,29H6z'
+          ));
+        }
+      
+    }
 
   }
   .place_center{
@@ -639,11 +650,11 @@ export default {
       @apply  flex justify-center;
       animation: cat $duration none, squigglevision 0.3s infinite;
       animation-timing-function: cubic-bezier(0, 0, 0.8, 0.9);
-      bottom: 20.5vmax;
+      bottom: 0.5vmax;
 
       transform-origin: bottom right;
-      width : 100%;
-      height: 100px;
+      width : 50vw;
+      height: auto;
     }
 
   }

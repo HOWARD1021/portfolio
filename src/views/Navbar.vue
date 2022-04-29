@@ -1,7 +1,6 @@
 <template>
   <nav class=" navStyle ">
     <router-link to="/">Home</router-link> 
-    <router-link to="/flickityImg">Flckity</router-link>
     <router-link to="/lyingCat">Cat</router-link>
     <router-link to="/sideProject">Project</router-link>
 	</nav>
