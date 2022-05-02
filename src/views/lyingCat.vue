@@ -606,7 +606,7 @@ export default {
 
 .lyingCat {
   .content--cat {
-    background: url('../img/ballon.png') no-repeat 50% 50%; //center center fixed
+    background: url('../img/ballon.png') no-repeat 50% 30%; //center center fixed
     background-size: cover;
     position: absolute;
     pointer-events: none;
