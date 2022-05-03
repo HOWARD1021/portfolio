@@ -1,10 +1,13 @@
 <template>
   <div class="title">
     <transition name="slide-fade" mode="out-in">
-      <span  :key="title"> {{title}} </span>
+      <div  :key="title"> {{title}} </div>
     </transition>
 
-    <div>
+    
+
+  </div>
+  <div>
     <transition name="slide-fade" mode="out-in">
       <div :key="value">
         {{ value }}
@@ -16,8 +19,6 @@
     <button @click="subtract">
     Subtract
     </button>
-  </div>
-
   </div>
 </template>
 
