@@ -219,6 +219,10 @@
     <div v-if="flickity_enable==true">
       <FlickityImg/>
     </div>
+    <div>{{project_name}}</div>
+    <div class="flex justify-center">
+      <ProjectName  :title = "project_name" />
+    </div>
     
   </div>
 
@@ -229,12 +233,14 @@
 
 import Navbar from './Navbar.vue';
 import FlickityImg from './FlickityImg.vue';
+import ProjectName from './project_title.vue';
 
 export default {
   name: 'SideProject',
   components: {
     Navbar,
-    FlickityImg
+    FlickityImg,
+    ProjectName
   },
   data() {
     return {
@@ -248,6 +254,8 @@ export default {
             height: 0
       },
       flickity_enable: false,
+      project_name_list: ['PROJECT1', 'PROJECT2', 'PROJECT3','PROJECT4','PROJECT5', 'PROJECT6'],
+      project_name:  'PROJECT3'
     }
   },
   
@@ -275,6 +283,9 @@ export default {
         for(var i=0; i<6; i++){
           this.value[i] = this.calcVal(i, this.value_ind[i])
         }
+
+        this.project_name = this.project_name_list[val-1]
+        
       }
       
       this.hovered = true
