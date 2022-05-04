@@ -213,16 +213,18 @@
           </div>
         </transition>
       </div>
+    
+    <div class="flex justify-center">
+      <ProjectName  :ind = "selected_index" />
+    </div>
 
     </div>
 
     <div v-if="flickity_enable==true">
       <FlickityImg/>
     </div>
-    <div>{{project_name}}</div>
-    <div class="flex justify-center">
-      <ProjectName  :title = "project_name" />
-    </div>
+
+    
     
   </div>
 
@@ -254,8 +256,7 @@ export default {
             height: 0
       },
       flickity_enable: false,
-      project_name_list: ['PROJECT1', 'PROJECT2', 'PROJECT3','PROJECT4','PROJECT5', 'PROJECT6'],
-      project_name:  'PROJECT3'
+      selected_index: 0
     }
   },
   
@@ -284,7 +285,7 @@ export default {
           this.value[i] = this.calcVal(i, this.value_ind[i])
         }
 
-        this.project_name = this.project_name_list[val-1]
+        this.selected_index = val-1
         
       }
       

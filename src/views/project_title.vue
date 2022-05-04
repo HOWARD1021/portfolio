@@ -1,25 +1,13 @@
 <template>
   <div class="title">
     <transition name="slide-fade" mode="out-in">
-      <div  :key="title"> {{title}} </div>
+      <div  :key="project_name"> {{project_name}} </div>
     </transition>
 
     
 
   </div>
-  <div>
-    <transition name="slide-fade" mode="out-in">
-      <div :key="value">
-        {{ value }}
-      </div>
-    </transition>
-    <button @click="add">
-    Add
-    </button>
-    <button @click="subtract">
-    Subtract
-    </button>
-  </div>
+
 </template>
 
 <script>
@@ -27,28 +15,27 @@ export default {
   name: 'projectName',
   data(){
     return{
-
-    }
+      project_name_list: ['PROJECT1', 'PROJECT2', 'PROJECT3','PROJECT4','PROJECT5', 'PROJECT6'],
+      project_name:  'PROJECT3'
+    };
   },
   props: {
-    title: {
-      type: String,
-      default: '',
+    ind: {
+      type: Number,
+      default: 3,
       required: true
     }
   },
-  data() {
-  	return{
-      value: 5,
+  watch:{
+    /*ind: (newVal, oldVal)=>{
+      console.log(this.test)
+    }*/
+    ind:{
+      handler(val, oldVal) {
+        this.project_name = this.project_name_list[val]
+        //console.log(this.project_name)
+      }
     }
-  },
-  methods: {
-  	add () {
-    	this.value++
-    },
-    subtract () {
-			this.value--
-    },
   }
 }
 </script>
@@ -67,11 +54,11 @@ export default {
   }
   .slide-fade-leave-to
   /* .slide-fade-leave-active for <2.1.8 */ {
-    transform: translateX(-10px);
+    transform: translateY(-10px);
     opacity: 0;
   }
   .slide-fade-enter-from {
-    transform: translateX(10px);
+    transform: translateY(10px);
     opacity: 0;
   }
 
