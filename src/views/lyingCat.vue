@@ -1,6 +1,7 @@
 <template>
   <div class="lyingCat">
     <div class="content content--cat">
+      
       <div class="fox">
       
         <div class="fox-tail">
@@ -17,8 +18,10 @@
 						</div>
 					</div>
       </div>
+
         <div class ="place_center">
           <div class="Cat">
+
             <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g id="flower_cat 1">
               <g id="eye">
@@ -70,16 +73,22 @@
       <canvas id="canvas" width="220" height="220" ref="canvas" @click="trigger">   </canvas>
     </div>
 
+    <div>
+      <fallen />
+    </div>
   </div>
+
 </template>
 
 <script>
 // @ is an alias to /src
 import rough from 'roughjs/bundled/rough.cjs';
+import fallen from './Fallenflower.vue';
 
 export default {
   name: 'LyingCat',
   components: {
+    fallen
   },
   data() {
     return {
@@ -212,70 +221,70 @@ export default {
     animation: blink 5s infinite;
   }
     
-  }
+}
 
-  @-webkit-keyframes blink {
-    0%, 100% {
-        transform: scale(1, .05);
-    }
-    5%,
-    95% {
-        transform: scale(1, 1);
-    }
+@-webkit-keyframes blink {
+  0%, 100% {
+      transform: scale(1, .05);
   }
+  5%,
+  95% {
+      transform: scale(1, 1);
+  }
+}
 
-  .fox-tail {
-    z-index: -1;
-    $initial-tail-width: 50vmax * $size;
-    width: $initial-tail-width;
-    height: $initial-tail-width;
+.fox-tail {
+  z-index: -1;
+  $initial-tail-width: 50vmax * $size;
+  width: $initial-tail-width;
+  height: $initial-tail-width;
+  transform-origin: center bottom;
+
+  &:before {
     transform-origin: center bottom;
 
-    &:before {
-      transform-origin: center bottom;
-
-        @include svg((viewBox: (0 0 66.4 66.4))) {
-        @include svg('path', (
-          fill: rgb(31, 31, 182),
-          d: 'M43.0793 30.6286C42.8598 29.2779 42.6111 29.4953 35.3529 19.5903C29.4118 11.4708 26.412 7.34113 25.3437 4.76397C24.4657 2.63705 24.2462 1.56582 23.0756 0.75852C19.5782 -1.66338 13.5054 2.23339 8.91052 5.16762C3.56935 8.58312 0.554866 10.5237 0.0426991 13.9858C-0.264601 16.0351 1.0963 18.752 3.8181 24.2013C4.98877 26.5455 6.32042 29.1848 8.54468 32.6158C11.047 36.4971 13.2127 39.8349 16.6662 43.0331C20.6025 46.6815 24.0267 49.8486 28.3728 49.8176C36.4943 49.771 44.411 38.624 43.0793 30.6286Z'
-        ));
-      }
-    }
-
-    .fox > & {
-      transform: rotate(90deg);
-      top: 280vmax * $size;
-      left: 160vmax * $size;
-    }
-
-    > .fox-tail {
-      animation: tail-inner 3s ease-in-out both infinite;
-      top: -$initial-tail-width / 2;
-      transform:
-        scale(1.1)
-        rotate(-35deg);
-    }
-
-    > .fox-tail > .fox-tail > .fox-tail > .fox-tail {
-      // opacity: 0.5;
-      animation: tail-outer 3s ease-in-out both infinite;
-      transform:
-        scale(1.1)
-        rotate(15deg);
+      @include svg((viewBox: (0 0 66.4 66.4))) {
+      @include svg('path', (
+        fill: rgb(31, 31, 182),
+        d: 'M43.0793 30.6286C42.8598 29.2779 42.6111 29.4953 35.3529 19.5903C29.4118 11.4708 26.412 7.34113 25.3437 4.76397C24.4657 2.63705 24.2462 1.56582 23.0756 0.75852C19.5782 -1.66338 13.5054 2.23339 8.91052 5.16762C3.56935 8.58312 0.554866 10.5237 0.0426991 13.9858C-0.264601 16.0351 1.0963 18.752 3.8181 24.2013C4.98877 26.5455 6.32042 29.1848 8.54468 32.6158C11.047 36.4971 13.2127 39.8349 16.6662 43.0331C20.6025 46.6815 24.0267 49.8486 28.3728 49.8176C36.4943 49.771 44.411 38.624 43.0793 30.6286Z'
+      ));
     }
   }
 
-  @keyframes tail-inner {
-    0% { transform: scale(1.1) rotate(-38deg); }
-    50% { transform: scale(1.1) rotate(-35deg); }
-    100% { transform: scale(1.1) rotate(-38deg); }
+  .fox > & {
+    transform: rotate(90deg);
+    top: 280vmax * $size;
+    left: 160vmax * $size;
   }
 
-  @keyframes tail-outer {
-    0% { transform: scale(1.1) rotate(-3deg); }
-    50% { transform: scale(1.1) rotate(15deg); }
-    100% { transform: scale(1.1) rotate(-3deg); }
+  > .fox-tail {
+    animation: tail-inner 3s ease-in-out both infinite;
+    top: -$initial-tail-width / 2;
+    transform:
+      scale(1.1)
+      rotate(-35deg);
   }
+
+  > .fox-tail > .fox-tail > .fox-tail > .fox-tail {
+    // opacity: 0.5;
+    animation: tail-outer 3s ease-in-out both infinite;
+    transform:
+      scale(1.1)
+      rotate(15deg);
+  }
+}
+
+@keyframes tail-inner {
+  0% { transform: scale(1.1) rotate(-38deg); }
+  50% { transform: scale(1.1) rotate(-35deg); }
+  100% { transform: scale(1.1) rotate(-38deg); }
+}
+
+@keyframes tail-outer {
+  0% { transform: scale(1.1) rotate(-3deg); }
+  50% { transform: scale(1.1) rotate(15deg); }
+  100% { transform: scale(1.1) rotate(-3deg); }
+}
 
 /*
   @keyframes tail-inner {
@@ -290,64 +299,64 @@ export default {
     100% { transform: scale(1.1) rotate(-3deg); }
   }
 */
-  $animations: (
+$animations: (
 
-    'body': (
-      (1s, 2s, 3s, 4s): translateY(5vmax * $size),
-      (1.2s, 2.2s, 3.2s, 4.2s): translateY(0),
-    )
-  );
+  'body': (
+    (1s, 2s, 3s, 4s): translateY(5vmax * $size),
+    (1.2s, 2.2s, 3.2s, 4.2s): translateY(0),
+  )
+);
 
-  @each $animation-name, $animation in $animations {
-    @keyframes #{$animation-name} {
-      @each $offsets, $transform in $animation {
-        @each $offset in $offsets {      
-          #{percentage($offset / $duration)} {
-            @if (type-of($transform) == 'number') {
-              opacity: $transform;
-            } @else {
-              transform: #{$transform};
-            }
+@each $animation-name, $animation in $animations {
+  @keyframes #{$animation-name} {
+    @each $offsets, $transform in $animation {
+      @each $offset in $offsets {      
+        #{percentage($offset / $duration)} {
+          @if (type-of($transform) == 'number') {
+            opacity: $transform;
+          } @else {
+            transform: #{$transform};
           }
         }
       }
     }
   }
+}
 
 
-  @keyframes squigglevision {
-    0% {
-      filter: url("#squiggly-0");
-    }
-    25% {
-      filter: url("#squiggly-1");
-    }
-    50% {
-      filter: url("#squiggly-2");
-    }
-    75% {
-      filter: url("#squiggly-3");
-    }
-    100% {
-      filter: url("#squiggly-4");
-    }
+@keyframes squigglevision {
+  0% {
+    filter: url("#squiggly-0");
   }
-
-
-  /* some style */
-
-  .canvas-bCenter{
-    @apply flex justify-center ;
-
-    #canvas {
-      position: absolute;
-      top: -20vh;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin:auto;
-    }
+  25% {
+    filter: url("#squiggly-1");
   }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
+}
+
+
+/* some style */
+
+.canvas-bCenter{
+  @apply flex justify-center ;
+
+  #canvas {
+    position: absolute;
+    top: -20vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+  }
+}
   
 
 </style>
