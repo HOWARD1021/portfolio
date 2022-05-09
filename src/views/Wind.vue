@@ -18,6 +18,7 @@ export default {
       console.log(falling_leaves);
       leaves.value = new LeafScene(falling_leaves.value)
       console.log("leaves:", leaves.value.pro)
+      leaves.value.init();
     })
     
     onBeforeUpdate(() => {
@@ -134,10 +135,34 @@ export default {
       }
     }
 
-    function init(el) {
-      
+    LeafScene.prototype.init = function() {
+    console.log("init")
+      for (var i = 0; i < this.options.numLeaves; i++) {
+        var leaf = {
+          el: document.createElement('div'),
+          x: 0,
+          y: 0,
+          z: 0,
+          rotation: {
+            axis: 'X',
+            value: 0,
+            speed: 0,
+            x: 0
+          },
+          xSpeedVariation: 0,
+          ySpeed: 0,
+          path: {
+            type: 1,
+            start: 0,
+
+          },
+          image: 1
+        };
+        this._resetLeaf(leaf);
+        this.leaves.push(leaf);
+        this.world.appendChild(leaf.el);
+      }
     }
-  
     /*const content = ref(null);
     const state = reactive({ name: "Vue" });
     onBeforeMount(() => {
@@ -165,8 +190,6 @@ export default {
       myVue.unmount();
     }
     */
-
-   
 
     return { falling_leaves };
   }

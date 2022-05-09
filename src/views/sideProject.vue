@@ -256,7 +256,7 @@ export default {
             height: 0
       },
       flickity_enable: false,
-      selected_index: 0
+      selected_index: 3
     }
   },
   
@@ -270,7 +270,7 @@ export default {
   methods:{
     
     projectHover(val){     
-      
+      console.log("val:",val,"-hovered",this.hovered);
       if(!this.hovered){
         // 1 ~ val
         for(var i=val-1; i>=1; i--){
@@ -286,7 +286,7 @@ export default {
         }
 
         this.selected_index = val-1
-        
+        console.log("selected:", this.selected_index);
       }
       
       this.hovered = true

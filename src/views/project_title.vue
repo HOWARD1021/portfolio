@@ -33,7 +33,7 @@ export default {
     ind:{
       handler(val, oldVal) {
         this.project_name = this.project_name_list[val]
-        //console.log(this.project_name)
+        console.log(this.project_name)
       }
     }
   }
