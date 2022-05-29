@@ -12,7 +12,9 @@ module.exports = {
         
       },
       fontFamily: {
-        body: ['Nunito']
+        body: ['Nunito'],
+        'acme':['Acme', 'sans-serif'],
+        'catamaran':['Catamaran', 'sans-serif'],
       },
     },
   },

@@ -14,7 +14,7 @@
 }
 
 html {
-  background-color: antiquewhite;
+  background-color: white;
 }
 
 #nav {
