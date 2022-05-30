@@ -464,7 +464,7 @@
     </div>
     
 
-    <div>
+    <div class="text">
       <h1 class="header-1"> Hello </h1>
       <h1 class="header-1"> I'm Aqua </h1>
     </div>
@@ -554,15 +554,16 @@ export default {
 	}
 }
 
-
-
-
-
 .lyingCat {
   
-  .header-1{
-    @apply font-acme text-8xl ;
-    text-align: left;
+  .text{
+    @apply mx-9 ;
+
+    .header-1{
+      @apply font-acme 2xl:text-8xl xl:text-7xl;
+      text-align: left;
+    }
+
   }
   
   .content--cat {
