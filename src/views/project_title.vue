@@ -4,8 +4,6 @@
       <div  :key="project_name"> {{project_name}} </div>
     </transition>
 
-    
-
   </div>
 
 </template>

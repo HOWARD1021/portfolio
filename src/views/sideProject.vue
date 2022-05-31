@@ -2,11 +2,12 @@
 
   <Navbar/>
   <div class="sideProject">
+
     <div class="project" v-if=" flickity_enable==false">
 
       <div>
         <transition name="scroll">
-          <div class="item-image p1"  @mouseover="projectHover(1)" @mouseleave="projectLeave(1)">
+          <div class="item-image p1"  @mouseover="projectHover(1)" @mouseleave="projectLeave(1)" @click="openModal(1)">
             <img class="" src="../img/spring_fox.jpg"> 
             <div class="en_border left">
             <svg width="12" height="650" viewBox="0 0 9 650" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -41,7 +42,7 @@
 
       <div>
         <transition name="scroll">
-          <div class="item-image p2" @mouseover="projectHover(2)" @mouseleave="projectLeave(2)">
+          <div class="item-image p2" @mouseover="projectHover(2)" @mouseleave="projectLeave(2)" @click="openModal(2)">
             <img class="" src="../img/spring_fox.jpg"> 
             <div class="en_border left">
             <svg width="12" height="650" viewBox="0 0 9 650" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -76,7 +77,7 @@
 
       <div>
         <transition name="scroll">
-          <div class="item-image p3" @mouseover="projectHover(3)" @mouseleave="projectLeave(3)">
+          <div class="item-image p3" @mouseover="projectHover(3)" @mouseleave="projectLeave(3)" @click="openModal(3)">
             <img class="" src="../img/spring_fox.jpg"> 
             <div class="en_border left">
             <svg width="12" height="650" viewBox="0 0 9 650" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -111,7 +112,7 @@
 
       <div>
         <transition name="scroll">
-          <div class="item-image p4" @mouseover="projectHover(4)" @mouseleave="projectLeave(4)">
+          <div class="item-image p4" @mouseover="projectHover(4)" @mouseleave="projectLeave(4)" @click="openModal(4)">
             <img class="" src="../img/spring_fox.jpg"> 
             <div class="en_border left">
             <svg width="12" height="650" viewBox="0 0 9 650" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -146,7 +147,7 @@
 
       <div>
         <transition name="scroll">
-          <div class="item-image p5" @mouseover="projectHover(5)" @mouseleave="projectLeave(5)">
+          <div class="item-image p5" @mouseover="projectHover(5)" @mouseleave="projectLeave(5)" @click="openModal(5)">
             <img class="" src="../img/spring_fox.jpg"> 
             <div class="en_border left">
             <svg width="12" height="650" viewBox="0 0 9 650" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -181,7 +182,7 @@
 
       <div>
         <transition name="scroll">
-          <div class="item-image p6" @mouseover="projectHover(6)" @mouseleave="projectLeave(6)">
+          <div class="item-image p6" @mouseover="projectHover(6)" @mouseleave="projectLeave(6)" @click="openModal(6)">
             <img class="" src="../img/spring_fox.jpg"> 
             <div class="en_border left">
             <svg width="12" height="650" viewBox="0 0 9 650" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -213,20 +214,79 @@
           </div>
         </transition>
       </div>
-    
-    <div class="flex justify-center">
-      <ProjectName  :ind = "selected_index" />
-    </div>
+      
+      <div class="flex justify-center">
+        <ProjectName  :ind = "selected_index" />
+      </div>
 
     </div>
 
     <div v-if="flickity_enable==true">
       <FlickityImg/>
     </div>
-
-    
-    
+  
   </div>
+
+  <TransitionRoot appear :show="isOpen" as="template">
+    <Dialog as="div" @close="closeModal" class="relative z-10">
+      <TransitionChild
+        as="template"
+        enter="duration-300 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-200 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
+      >
+        <div class="fixed inset-0 bg-black bg-opacity-25" />
+      </TransitionChild>
+
+      <div class="fixed inset-0 overflow-y-auto">
+        <div
+          class="flex h-full items-center justify-center p-4 text-center"
+        >
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <DialogPanel
+              class=" w-3/5 h-3/4 transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+            >
+              <DialogTitle
+                as="h3"
+                :key="project_name"
+                class="text-lg font-medium leading-6 text-gray-900"
+              >
+                {{project_name}}
+              </DialogTitle>
+
+              <div class=" flex mt-2">
+                <p class="text-sm text-gray-500" :key="project_content">
+                  {{project_content}}
+                </p>
+                <img class="w-1/2" src="../img/spring_fox.jpg">
+              </div>
+
+              <div class="mt-4">
+                <button
+                  type="button"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  @click="closeModal"
+                >
+                  Got it, thanks!
+                </button>
+              </div>
+            </DialogPanel>
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
 
 </template>
 
@@ -236,13 +296,19 @@
 import Navbar from './Navbar.vue';
 import FlickityImg from './FlickityImg.vue';
 import ProjectName from './project_title.vue';
+import { TransitionRoot,  TransitionChild,  Dialog,  DialogPanel,  DialogTitle } from '@headlessui/vue'
 
 export default {
   name: 'SideProject',
   components: {
     Navbar,
     FlickityImg,
-    ProjectName
+    ProjectName,
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogPanel,
+    DialogTitle,
   },
   data() {
     return {
@@ -256,7 +322,11 @@ export default {
             height: 0
       },
       flickity_enable: false,
-      selected_index: 3
+      selected_index: 3,
+      isOpen: false,
+      project_name_list: ['PROJECT1', 'PROJECT2', 'PROJECT3','PROJECT4','PROJECT5', 'PROJECT6'],
+      project_name:  'PROJECT3',
+      project_content:'',
     }
   },
   
@@ -268,7 +338,35 @@ export default {
     
   },
   methods:{
-    
+    closeModal(){
+      this.isOpen = false
+      
+    },
+    openModal(val){
+      this.isOpen = true
+      this.project_name = this.project_name_list[val-1]
+
+      if(val == 1){
+        this.project_content="My main task is to build the whole AI engine, which is responsible of detection and representation. I built the entire framework, including inference engine,  id tracker,  fence detection, and more. "
+      }
+      else if(val==2){
+        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+      }
+      else if(val==3){
+        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+      }
+      else if(val==4){
+        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+      }
+      else if(val==5){
+        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+      }
+      else if(val==6){
+        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+      }
+
+
+    },
     projectHover(val){     
       console.log("val:",val,"-hovered",this.hovered);
       if(!this.hovered){
@@ -314,7 +412,9 @@ export default {
         this.flickity_enable = false;
       }
       console.log(this.window.width, ";", this.flickity_enable);
-    }
+    },
+
+    /* project content */
 
   },
 
