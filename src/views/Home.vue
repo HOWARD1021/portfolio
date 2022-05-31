@@ -450,9 +450,9 @@
         <span> FrontEnd / Software Developer </span>
       </div>
       <div>
-        <router-link to="/sideProject" 
-                    tag="button"
-                    class="btn hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        <router-link  to="/sideProject" 
+                      tag="button"
+                      class="btn hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         >
           Go to Project
         </router-link>
@@ -490,9 +490,9 @@ export default {
 @import 'node_modules/sassdash';
 @import 'node_modules/sass-svg/index';
 
-  $duration: 17s;
-  $size: 0.07;
-  $color-fox: #e37c67;
+$duration: 17s;
+$size: 0.07;
+$color-fox: #e37c67;
   
 /* cat animation */
 
@@ -606,95 +606,38 @@ export default {
 
   }
 
-  /*#eye {
-    transform-origin: center;
-    animation: blink 5s infinite;
-  }*/
+  #eye {
+    transform-origin: 100px 180px;
+    animation: blink 5s infinite none;
+  }
     
 }
 
-@-webkit-keyframes blink {
-  0%, 100% {
-      transform: scale(1, .05);
+@keyframes blink {
+  0%, 20%
+    {transform: scaleY(1);}
+
+  50%{
+     transform: scaleY(0.7);
   }
-  5%,
-  95% {
-      transform: scale(1, 1);
-  }
+
 }
 
-.fox-tail {
-  z-index: -1;
-  $initial-tail-width: 50vmax * $size;
-  width: $initial-tail-width;
-  height: $initial-tail-width;
-  transform-origin: center bottom;
-
-  &:before {
-    transform-origin: center bottom;
-
-      @include svg((viewBox: (0 0 66.4 66.4))) {
-      @include svg('path', (
-        fill: rgb(31, 31, 182),
-        d: 'M43.0793 30.6286C42.8598 29.2779 42.6111 29.4953 35.3529 19.5903C29.4118 11.4708 26.412 7.34113 25.3437 4.76397C24.4657 2.63705 24.2462 1.56582 23.0756 0.75852C19.5782 -1.66338 13.5054 2.23339 8.91052 5.16762C3.56935 8.58312 0.554866 10.5237 0.0426991 13.9858C-0.264601 16.0351 1.0963 18.752 3.8181 24.2013C4.98877 26.5455 6.32042 29.1848 8.54468 32.6158C11.047 36.4971 13.2127 39.8349 16.6662 43.0331C20.6025 46.6815 24.0267 49.8486 28.3728 49.8176C36.4943 49.771 44.411 38.624 43.0793 30.6286Z'
-      ));
-    }
-  }
-
-  .fox > & {
-    transform: rotate(90deg);
-    top: 280vmax * $size;
-    left: 160vmax * $size;
-  }
-
-  > .fox-tail {
-    animation: tail-inner 3s ease-in-out both infinite;
-    top: -$initial-tail-width / 2;
-    transform:
-      scale(1.1)
-      rotate(-35deg);
-  }
-
-  > .fox-tail > .fox-tail > .fox-tail > .fox-tail {
-    // opacity: 0.5;
-    animation: tail-outer 3s ease-in-out both infinite;
-    transform:
-      scale(1.1)
-      rotate(15deg);
-  }
-}
-
-@keyframes tail-inner {
-  0% { transform: scale(1.1) rotate(-38deg); }
-  50% { transform: scale(1.1) rotate(-35deg); }
-  100% { transform: scale(1.1) rotate(-38deg); }
-}
-
-@keyframes tail-outer {
-  0% { transform: scale(1.1) rotate(-3deg); }
-  50% { transform: scale(1.1) rotate(15deg); }
-  100% { transform: scale(1.1) rotate(-3deg); }
-}
-
-/*
-  @keyframes tail-inner {
-    0% { transform:  rotate(-1deg); }
-    50% { transform:  rotate(-2deg); }
-    100% { transform: rotate(-3deg); }
-  }
-
-  @keyframes tail-outer {
-    0% { transform: scale(1.1) rotate(-3deg); }
-    50% { transform: scale(1.1) rotate(15deg); }
-    100% { transform: scale(1.1) rotate(-3deg); }
-  }
-*/
 $animations: (
 
   'body': (
     (1s, 2s, 3s, 4s): translateY(5vmax * $size),
     (1.2s, 2.2s, 3.2s, 4.2s): translateY(0),
-  )
+  ),
+  'eyes': (
+
+		2.75s: scaleY(0.2),
+		4.5s: scaleY(0.2),
+
+		10.5s:  scaleY(0.2),
+
+		13.5s: scaleY(0.2),
+	)
 );
 
 @each $animation-name, $animation in $animations {
