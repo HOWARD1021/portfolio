@@ -260,27 +260,28 @@
               <DialogTitle
                 as="h3"
                 :key="project_name"
-                class="text-lg font-medium leading-6 text-gray-900"
+                class=" text-2xl leading-6 text-gray-900 font-acme"
               >
                 {{project_name}}
               </DialogTitle>
 
-              <div class=" flex mt-2">
-                <p class="text-sm text-gray-500" :key="project_content">
+              <div class=" flex mt-6 ">
+                <p class=" w-1/2 font-catamaran text-lg text-gray-500 m-2" :key="project_content">
                   {{project_content}}
                 </p>
                 <img class="w-1/2" src="../img/spring_fox.jpg">
               </div>
 
-              <div class="mt-4">
+              <div class=" bottom-3">
                 <button
                   type="button"
                   class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   @click="closeModal"
                 >
-                  Got it, thanks!
+                  Close
                 </button>
               </div>
+
             </DialogPanel>
           </TransitionChild>
         </div>
@@ -324,8 +325,8 @@ export default {
       flickity_enable: false,
       selected_index: 3,
       isOpen: false,
-      project_name_list: ['PROJECT1', 'PROJECT2', 'PROJECT3','PROJECT4','PROJECT5', 'PROJECT6'],
-      project_name:  'PROJECT3',
+      project_name_list: ['Greygoose', 'Touch Cloud Website', 'Abaci Report', 'Axis Camera Plugin and AI Analysis System', 'NEXCOM Mechanical Arm Computer Vision AI Analysis System', 'Internship : 3D Scanning with Optical Inspection Instruments'],
+      project_name:  'Abaci Report',
       project_content:'',
     }
   },
@@ -353,16 +354,16 @@ export default {
         this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
       }
       else if(val==3){
-        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+        this.project_content=" A local website for statistical report:  The main challenges were to deal with the gorgeous amount of data from AI engine, and present in a nice way, according charts , gauge capacity. "
       }
       else if(val==4){
-        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+        this.project_content=" Detect motion and send camera frame to AI server. "
       }
       else if(val==5){
-        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+        this.project_content=" A system for detection LED lamp :    Detect position , LED lamp rotation angle and color."
       }
       else if(val==6){
-        this.project_content=" In this project, as a Front-end developer, I was responsible of the entire design of the website, and introduce product to client clearly. "
+        this.project_content=" Point Cloud Visualization System:    User could operate system with point cloud data , analyze and rebuild point cloud, then display with detail information."
       }
 
 

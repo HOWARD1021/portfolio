@@ -45,11 +45,11 @@ export default {
   display: inline-block;
   width: 200px;
   height: 150px;
-  background: linear-gradient(to bottom right, #309900, #005600);
+  background: linear-gradient(to bottom right, #ec9bdf, #f885f8);
   transform: skew(20deg);
   border-radius: 5% 40% 70%;
-  box-shadow: inset 0px 0px 1px #222;
-  border: 1px solid #333;
+  box-shadow: inset 0px 0px 1px rgb(173, 77, 165);
+  border: 1px solid rgb(182, 95, 177);
   z-index: 1;
   animation: falling 5s 0s infinite;
 }
@@ -66,11 +66,11 @@ export default {
   width: 32px;
   transform: rotate(49deg);
   border-radius: 0% 15% 15% 0%;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-  border-left: 0px solid #222;
-  border-right: 1px solid #222;
-  background: linear-gradient(to right, rgba(0,100,0,1), #005600);
+  border-top: 1px solid rgb(248, 142, 222);
+  border-bottom: 1px solid rgb(235, 125, 225);
+  border-left: 0px solid rgb(245, 126, 225);
+  border-right: 1px solid rgb(241, 107, 230);
+  background: linear-gradient(to right, #ec9bdf, #f885f8);
   z-index: 1;
 }
 
@@ -78,7 +78,7 @@ export default {
   content: '';
   height: 125px;
   width: 10px;
-  background: linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,0));
+  background: linear-gradient(to right, rgba(241, 129, 245, 0.15), rgba(245, 118, 213, 0));
   display: block;
   transform: rotate(125deg);
   position: absolute;
@@ -115,9 +115,9 @@ export default {
 #leaves i:nth-of-type(14n) { animation-delay: 4.7s;}
 #leaves i:nth-of-type(15n) { animation-delay: 3s;  }
 
-#leaves i:nth-of-type(n)    { background: linear-gradient(to bottom right, #309900, #005600); }
-#leaves i:nth-of-type(2n+2)  { background: linear-gradient(to bottom right, #5e9900, #2b5600); }
-#leaves i:nth-of-type(4n+1)  { background: linear-gradient(to bottom right, #990, #564500); }
+#leaves i:nth-of-type(n)    { background: linear-gradient(to bottom right, #e26ef1, #bc62ce); }
+#leaves i:nth-of-type(2n+2)  { background: linear-gradient(to bottom right, #e394ee, #f185bb); }
+#leaves i:nth-of-type(4n+1)  { background: linear-gradient(to bottom right, rgb(252, 149, 217), #f6adf8); }
 
 #leaves i:nth-of-type(n)    { opacity: .7;}
 #leaves i:nth-of-type(3n+1)  { opacity: .5;}
