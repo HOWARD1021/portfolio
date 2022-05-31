@@ -607,7 +607,7 @@ $color-fox: #e37c67;
   }
 
   #eye {
-    transform-origin: 100px 180px;
+    transform-origin: 500px 180px;
     animation: blink 5s infinite none;
   }
     
