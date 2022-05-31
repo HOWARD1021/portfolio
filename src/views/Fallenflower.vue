@@ -44,8 +44,8 @@ export default {
 #leaves i {
   display: inline-block;
   width: 200px;
-  height: 150px;
-  background: linear-gradient(to bottom right, #ec9bdf, #f885f8);
+  height: 600px;
+  background: linear-gradient(to bottom right, #ec9bdf, #bb57bb);
   transform: skew(20deg);
   border-radius: 5% 40% 70%;
   box-shadow: inset 0px 0px 1px rgb(173, 77, 165);
@@ -57,35 +57,18 @@ export default {
 #leaves i:nth-of-type(2n) { animation: falling2 5s 0s infinite; }
 #leaves i:nth-of-type(3n) { animation: falling3 8s 0s infinite; }
 
-#leaves i:before {
-  position: absolute;
-  content: '';
-  top: 117px;
-  right: 9px;
-  height: 27px;
-  width: 32px;
-  transform: rotate(49deg);
-  border-radius: 0% 15% 15% 0%;
-  border-top: 1px solid rgb(248, 142, 222);
-  border-bottom: 1px solid rgb(235, 125, 225);
-  border-left: 0px solid rgb(245, 126, 225);
-  border-right: 1px solid rgb(241, 107, 230);
-  background: linear-gradient(to right, #ec9bdf, #f885f8);
-  z-index: 1;
-}
 
 #leaves i:after {
   content: '';
   height: 125px;
   width: 10px;
-  background: linear-gradient(to right, rgba(241, 129, 245, 0.15), rgba(245, 118, 213, 0));
+  background: linear-gradient(to right, rgba(106, 61, 107, 0.15), rgba(45, 30, 41, 0));
   display: block;
   transform: rotate(125deg);
   position: absolute;
   left: 85px;
   border-radius:50%;
 }
-
 
 #leaves i:nth-of-type(n)    { height:23px; width:30px; }
 #leaves i:nth-of-type(n):before { width:7px; height:5px; top:17px; right:1px; }
