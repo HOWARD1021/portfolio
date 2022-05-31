@@ -452,7 +452,7 @@
       <div>
         <router-link  to="/sideProject" 
                       tag="button"
-                      @moudeover="animationEffect"
+                      @mouseover="animationEffect"
                       class="btn bg-blue-100 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         >
           Go to Project
