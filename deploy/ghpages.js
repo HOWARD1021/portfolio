@@ -5,7 +5,7 @@ const ghpages = require('gh-pages');
 
 const options = {
     branch: 'gh-pages',
-    repo: 'https://github.com/aquahsu0811/scss-tailwindcss-animation.git' // project github repo
+    repo: 'https://github.com/HOWARD1021/portfolio.git' // project github repo
 };
 
 const callback = err => {
