@@ -24,12 +24,7 @@ const routes = [
     path: '/sideProject',
     name: 'SideProject',
     component: () => import(/* webpackChunkName: "about" */ '../views/sideProject.vue')
-  } ,
-  {
-    path: '/wind',
-    name: 'Wind',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Wind.vue')
-  }
+  } 
 ]
 
 const router = createRouter({

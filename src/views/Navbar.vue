@@ -1,9 +1,9 @@
 <template>
   <nav class=" navStyle ">
     <router-link to="/">Home</router-link> 
-    <router-link to="/lyingCat">Cat</router-link>
+    <!--<router-link to="/lyingCat">Cat</router-link>-->
     <router-link to="/sideProject">Project</router-link>
-    <router-link to="/wind">Wind</router-link>
+    <router-link to="/about">About</router-link>
 	</nav>
   <router-view/>
 
@@ -32,7 +32,7 @@ export default {
 
 .navStyle {
     @apply absolute text-center top-4 left-4 leading-4 flex flex-wrap text-faint_orange text-sm;
-    font-family: 'Playfair Display';
+    //font-family: 'Playfair Display';
 
     a{
         @apply  border-faint_orange px-3 py-3 font-bold tracking-widest uppercase;
@@ -43,6 +43,6 @@ export default {
         }
     }
 
-
 }
+
 </style>

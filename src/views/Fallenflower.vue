@@ -44,12 +44,12 @@ export default {
 #leaves i {
   display: inline-block;
   width: 200px;
-  height: 150px;
-  background: linear-gradient(to bottom right, #309900, #005600);
+  height: 600px;
+  background: linear-gradient(to bottom right, #ec9bdf, #bb57bb);
   transform: skew(20deg);
   border-radius: 5% 40% 70%;
-  box-shadow: inset 0px 0px 1px #222;
-  border: 1px solid #333;
+  box-shadow: inset 0px 0px 1px rgb(173, 77, 165);
+  border: 1px solid rgb(182, 95, 177);
   z-index: 1;
   animation: falling 5s 0s infinite;
 }
@@ -57,35 +57,18 @@ export default {
 #leaves i:nth-of-type(2n) { animation: falling2 5s 0s infinite; }
 #leaves i:nth-of-type(3n) { animation: falling3 8s 0s infinite; }
 
-#leaves i:before {
-  position: absolute;
-  content: '';
-  top: 117px;
-  right: 9px;
-  height: 27px;
-  width: 32px;
-  transform: rotate(49deg);
-  border-radius: 0% 15% 15% 0%;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-  border-left: 0px solid #222;
-  border-right: 1px solid #222;
-  background: linear-gradient(to right, rgba(0,100,0,1), #005600);
-  z-index: 1;
-}
 
 #leaves i:after {
   content: '';
   height: 125px;
   width: 10px;
-  background: linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,0));
+  background: linear-gradient(to right, rgba(106, 61, 107, 0.15), rgba(45, 30, 41, 0));
   display: block;
   transform: rotate(125deg);
   position: absolute;
   left: 85px;
   border-radius:50%;
 }
-
 
 #leaves i:nth-of-type(n)    { height:23px; width:30px; }
 #leaves i:nth-of-type(n):before { width:7px; height:5px; top:17px; right:1px; }
@@ -115,9 +98,9 @@ export default {
 #leaves i:nth-of-type(14n) { animation-delay: 4.7s;}
 #leaves i:nth-of-type(15n) { animation-delay: 3s;  }
 
-#leaves i:nth-of-type(n)    { background: linear-gradient(to bottom right, #309900, #005600); }
-#leaves i:nth-of-type(2n+2)  { background: linear-gradient(to bottom right, #5e9900, #2b5600); }
-#leaves i:nth-of-type(4n+1)  { background: linear-gradient(to bottom right, #990, #564500); }
+#leaves i:nth-of-type(n)    { background: linear-gradient(to bottom right, #e26ef1, #bc62ce); }
+#leaves i:nth-of-type(2n+2)  { background: linear-gradient(to bottom right, #e394ee, #f185bb); }
+#leaves i:nth-of-type(4n+1)  { background: linear-gradient(to bottom right, rgb(252, 149, 217), #f6adf8); }
 
 #leaves i:nth-of-type(n)    { opacity: .7;}
 #leaves i:nth-of-type(3n+1)  { opacity: .5;}

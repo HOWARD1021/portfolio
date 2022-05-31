@@ -4,8 +4,6 @@
       <div  :key="project_name"> {{project_name}} </div>
     </transition>
 
-    
-
   </div>
 
 </template>
@@ -15,8 +13,8 @@ export default {
   name: 'projectName',
   data(){
     return{
-      project_name_list: ['PROJECT1', 'PROJECT2', 'PROJECT3','PROJECT4','PROJECT5', 'PROJECT6'],
-      project_name:  'PROJECT3'
+      project_name_list: ['Greygoose', 'Touch Cloud Website', 'Abaci Report', 'Axis Camera Plugin and AI Analysis System', 'NEXCOM Mechanical Arm Computer Vision AI Analysis System', 'Internship : 3D Scanning with Optical Inspection Instruments'],
+      project_name:  'Project',
     };
   },
   props: {
